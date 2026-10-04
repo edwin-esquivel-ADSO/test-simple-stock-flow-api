@@ -6,7 +6,6 @@ RUN apk add --no-cache \
     libpng-dev \
     libjpeg-turbo-dev \
     freetype-dev \
-    icu-dev \
     bash \
     git
 
@@ -15,8 +14,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         pdo_mysql \
         bcmath \
         zip \
-        gd \
-        intl
+        gd
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 

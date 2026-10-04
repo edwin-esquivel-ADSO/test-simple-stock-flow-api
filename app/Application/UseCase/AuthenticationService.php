@@ -38,7 +38,7 @@ final class AuthenticationService implements Authenticate
         $user = $this->userRepository->findByUsername($userVO);
 
         if ($user === null || !$this->passwordHasher->verify($password, $user->getPasswordHash())) {
-            throw new InvalidCredentialsException('Credenciales inválidas.');
+            throw new InvalidCredentialsException('Usuario o contraseña incorrectos.');
         }
 
         return $this->tokenGenerator->generate($user);
